@@ -1,0 +1,4 @@
+one simulated save = three writes to notes/slow-save.md
+t05a: chunks 300 ms apart -> runs: 3
+t05b: chunks 300 ms apart -> runs: 1
+t05c: chunks 1500 ms apart -> runs: 3

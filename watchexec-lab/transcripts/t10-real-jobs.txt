@@ -1,0 +1,23 @@
+### A) watchexec -w . -i 'build' -- ./build.sh
+builds run: 2
+new sentence present in build/index.html? 1 occurrence(s)
+[Running: ./build.sh]
+built build/index.html (build number 1)
+[Command was successful]
+[Running: ./build.sh]
+built build/index.html (build number 2)
+[Command was successful]
+
+### B) watchexec --postpone -e md -w . -- ./check.sh
+[Running: ./check.sh]
+PASS notes/first-walk.md
+PASS notes/orchard.md
+FAIL notes/untitled.md -- first line is not a title: This note has no title line.
+some notes are missing titles
+[Command exited with 1]
+[Running: ./check.sh]
+PASS notes/first-walk.md
+PASS notes/orchard.md
+PASS notes/untitled.md
+all notes have titles
+[Command was successful]

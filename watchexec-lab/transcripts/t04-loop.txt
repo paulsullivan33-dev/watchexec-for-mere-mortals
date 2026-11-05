@@ -1,0 +1,11 @@
+### A) watchexec -w . -- ./build.sh   (no ignore)
+builds completed in 6 seconds: 99
+build counter reached: 99
+
+### B) watchexec -w . -i 'build' -- ./build.sh
+builds completed in 6 seconds: 1
+build counter reached: 1
+--- watchexec output, run B (complete) ---
+[Running: ./build.sh]
+built build/index.html (build number 1)
+[Command was successful]

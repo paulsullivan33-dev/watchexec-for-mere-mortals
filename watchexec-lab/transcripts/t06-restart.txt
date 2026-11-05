@@ -1,0 +1,20 @@
+--- first fetch:
+banner: Fieldnotes, first edition
+served by pid: 39697
+--- editing banner.txt
+--- second fetch:
+banner: Fieldnotes, second edition, revised
+served by pid: 39752
+--- old pid 39697 alive?
+no, it is gone
+--- new pid 39752 alive?
+yes
+--- signals log (written by the servers themselves):
+server pid 39697 received SIGTERM and exited cleanly
+server pid 39752 received SIGTERM and exited cleanly
+--- watchexec output:
+[Running: python3 serve.py]
+server starting, pid 39697, banner: Fieldnotes, first edition
+[Running: python3 serve.py]
+server starting, pid 39752, banner: Fieldnotes, second edition, revised
+[Waiting 10s for processes to exit before stopping...]

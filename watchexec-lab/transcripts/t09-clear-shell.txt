@@ -1,0 +1,9 @@
+### A) watchexec -c, run under script(1) to give it a terminal
+clear-screen sequences (ESC [ 2J) in the recording: 1
+cursor-home sequences (ESC [ H) in the recording:   1
+the command's line in the recording: Script started on 2026-11-05 09:35:58+00:00 [COMMAND="/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/bin/watchexec-2.8.0-x86_64-unknown-linux-gnu/watchexec -c --postpone -w . -- echo hello-after-clear" <not executed on terminal>]
+
+### B) redirection: default shell vs --shell=none
+default shell: shellout.txt exists, containing: shell-wrote-this
+shell=none: no shellout2.txt -- the '>' was just a word
+shell=none output: [Running: echo shell-wrote-this > shellout2.txt]

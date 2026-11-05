@@ -1,0 +1,48 @@
+=== action: create notes/new-note.md
+=== action: modify notes/new-note.md
+=== action: rename notes/new-note.md to notes/renamed-note.md
+=== action: metadata only -- chmod notes/renamed-note.md
+=== action: remove notes/renamed-note.md
+=== action: create a folder notes/sketches
+=== watchexec output with --print-events ===
+[EVENT 0] Event source=Filesystem kind=Create(File) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[EVENT 1] Event source=Filesystem kind=Modify(Data(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[EVENT 2] Event source=Filesystem kind=Modify(Metadata(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[EVENT 0] Event source=Filesystem kind=Create(File) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[EVENT 1] Event source=Filesystem kind=Modify(Data(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[EVENT 2] Event source=Filesystem kind=Modify(Metadata(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[Running: echo the command ran]
+the command ran
+[Command was successful]
+[EVENT 0] Event source=Filesystem kind=Modify(Data(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[EVENT 1] Event source=Filesystem kind=Modify(Metadata(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[EVENT 0] Event source=Filesystem kind=Modify(Data(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[EVENT 1] Event source=Filesystem kind=Modify(Metadata(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md filetype=file
+[Running: echo the command ran]
+the command ran
+[Command was successful]
+[EVENT 0] Event source=Filesystem kind=Modify(Name(From)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md
+[EVENT 1] Event source=Filesystem kind=Modify(Name(To)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/renamed-note.md filetype=file
+[EVENT 2] Event source=Filesystem kind=Modify(Name(Both)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/renamed-note.md filetype=file
+[EVENT 0] Event source=Filesystem kind=Modify(Name(From)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md
+[EVENT 1] Event source=Filesystem kind=Modify(Name(To)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/renamed-note.md filetype=file
+[EVENT 2] Event source=Filesystem kind=Modify(Name(Both)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/new-note.md path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/renamed-note.md filetype=file
+[Running: echo the command ran]
+the command ran
+[Command was successful]
+[EVENT 0] Event source=Filesystem kind=Modify(Metadata(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/renamed-note.md filetype=file
+[EVENT 0the command ran
+] Event source=Filesystem kind=Modify(Metadata(Any)) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/renamed-note.md filetype=file
+[Running: echo the command ran]
+[Command was successful]
+[EVENT 0] Event source=Filesystem kind=Remove(File) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/renamed-note.md filetype=file
+[EVENT 0] Event source=Filesystem kind=Remove(File) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/renamed-note.md filetype=file
+[Running: echo the command ran]
+the command ran
+[Command was successful]
+[EVENT 0] Event source=Filesystem kind=Create(Folder) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/sketches filetype=dir
+[EVENT 0] Event source=Filesystem kind=Create(Folder) path=/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t02/notes/sketches filetype=dir
+[Running: echo the command ran]
+the command ran
+[Command was successful]
+[EVENT 0] Event source=Keyboard signal=Interrupt

@@ -1,0 +1,15 @@
+watchexec: watchexec 2.8.0 (07e2b99e 2026-10-05) +pid1
+command: watchexec --timings -w . -- /home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/cmd-count.sh runs-t01.log
+runs after startup: 1
+--- editing notes/orchard.md (appending one line)
+runs after one edit: 2
+=== runs log ===
+run at 09:31:04.835793912
+run at 09:31:06.866292782
+=== watchexec's own output ===
+[Running: /home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/cmd-count.sh runs-t01.log]
+the command ran (log: runs-t01.log)
+[Command was successful, lasted 5ms]
+[Running: /home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/cmd-count.sh runs-t01.log]
+the command ran (log: runs-t01.log)
+[Command was successful, lasted 6ms]

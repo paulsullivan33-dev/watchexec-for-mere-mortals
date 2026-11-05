@@ -1,0 +1,72 @@
+The lab — one release binary, one fixture project, nobody else's files
+====================================================================
+
+The lab is watchexec as its project ships it:
+the official release binary, watchexec 2.8.0
+(watchexec-2.8.0-x86_64-unknown-linux-gnu.tar.xz
+from the watchexec GitHub releases), run from
+the lab's own bin/ folder on the build machine
+(an Ubuntu 24.04 sandbox) rather than installed
+system-wide. This machine's apt sources held no
+watchexec package, which is why the release file
+was the route. The binary and tarball were
+removed from the checkout after the build to
+keep it small; the drivers name the exact path
+they used. Python 3.12 provided the fixture
+server and the slow-save writer.
+
+  * The fixture project (fixtures/fieldnotes/):
+    "fieldnotes", a set of walking notes.
+    Two Markdown notes in notes/, a banner
+    file, build.sh (stitches the notes into
+    build/index.html with a build counter, so
+    no two builds are identical), check.sh
+    (fails any note whose first line is not a
+    title), and serve.py (a tiny HTTP server
+    on 127.0.0.1 port 18093 that reads the
+    banner once at startup, serves it with its
+    own process ID, and logs the signals it
+    receives). Generic, invented, and nobody's
+    real project.
+
+  * Command scripts (watchexec-lab/):
+    cmd-count.sh appends a timestamped line to
+    a runs log kept OUTSIDE the watched tree,
+    so runs can be counted exactly;
+    cmd-slow.sh takes three seconds over a run;
+    cmd-dumpenv.sh records every WATCHEXEC
+    variable in its environment.
+
+  * Driver scripts (drivers/): one per test,
+    each working on a fresh copy of the fixture
+    project under projects/, starting the
+    watch in the background, performing the
+    actions, counting, and stopping the watch.
+    projects/ itself was build scratch and is
+    not part of the checkout.
+
+  * Every claim's evidence
+    (watchexec-lab/transcripts/): t00 version
+    and the full 851-line --help; t01 the first
+    watch (1 startup run, 1 run per edit);
+    t02 the event stream under --print-events;
+    t03 filtering in both directions; t04 the
+    loop (99 builds) and its cure (1); t05
+    debounce (3, 1, 3 runs); t06 restart (PID
+    39697 replaced by 39752, both logging
+    SIGTERM); t07 and t11 the event reports
+    (default silence, environment variables,
+    stdio lines, JSON lines); t08 postpone,
+    busy policies, polling; t09 clear-screen
+    escapes under script(1) and the shell pair;
+    t10 the real jobs, FAIL to PASS.
+
+  * One accident, kept on record: the two
+    clear-screen runs under script(1) left
+    their watchers alive after the session
+    closed — the timeout killed the session
+    wrapper, not the watcher inside it. Both
+    strays were found in the process list and
+    stopped by hand. A watcher runs until
+    something stops it; the lab verified that
+    the tiresome way.

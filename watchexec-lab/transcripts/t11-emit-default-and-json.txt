@@ -1,0 +1,7 @@
+watchexec watchexec 2.8.0 (07e2b99e 2026-10-05) +pid1
+### default emission (no --emit-events-to): the command's WATCHEXEC variables
+--- a run happened; WATCHEXEC variables were:
+
+### --emit-events-to json-stdio: one edit, the JSON the command receives on stdin
+{"tags":[{"kind":"source","source":"filesystem"},{"kind":"fs","simple":"modify","full":"Modify(Data(Any))"},{"kind":"path","absolute":"/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t12/notes/orchard.md","filetype":"file"}]}
+{"tags":[{"kind":"source","source":"filesystem"},{"kind":"fs","simple":"modify","full":"Modify(Metadata(Any))"},{"kind":"path","absolute":"/home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/projects/t12/notes/orchard.md","filetype":"file"}]}

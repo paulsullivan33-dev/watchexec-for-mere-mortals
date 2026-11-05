@@ -1,0 +1,10 @@
+### A) --postpone
+drivers/t08-modes.sh: line 14: /home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/runs-t08a.log: No such file or directory
+runs 2s after startup, nothing changed: 0
+runs after the first change:            1
+### B) change during a run, default on-busy-update (do-nothing)
+slow runs started: 1
+### C) change during a run, -o queue
+slow runs started: 2
+### D) --poll 500ms
+runs after one edit under polling: 1

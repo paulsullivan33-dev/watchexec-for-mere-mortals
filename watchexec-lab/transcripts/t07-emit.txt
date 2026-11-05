@@ -1,0 +1,30 @@
+### A) --emit-events-to environment
+--- env-t07.log (paths shortened to the project folder) ---
+--- a run happened; WATCHEXEC variables were:
+WATCHEXEC_COMMON_PATH=PROJECT/notes
+WATCHEXEC_META_CHANGED_PATH=orchard.md
+WATCHEXEC_WRITTEN_PATH=orchard.md
+--- a run happened; WATCHEXEC variables were:
+WATCHEXEC_COMMON_PATH=PROJECT/notes
+WATCHEXEC_CREATED_PATH=newfile.md
+WATCHEXEC_META_CHANGED_PATH=newfile.md
+WATCHEXEC_WRITTEN_PATH=newfile.md
+--- a run happened; WATCHEXEC variables were:
+WATCHEXEC_COMMON_PATH=PROJECT/notes
+WATCHEXEC_RENAMED_PATH=movedfile.md:newfile.md
+--- a run happened; WATCHEXEC variables were:
+WATCHEXEC_COMMON_PATH=PROJECT/notes
+WATCHEXEC_REMOVED_PATH=movedfile.md
+
+### B) --emit-events-to stdio (the command is: cat >> stdio log)
+--- stdio-t07.log (paths shortened) ---
+modify:PROJECT/notes/orchard.md
+modify:PROJECT/notes/orchard.md
+modify:PROJECT/notes/orchard.md
+modify:PROJECT/notes/orchard.md
+create:PROJECT/notes/temp.md
+modify:PROJECT/notes/temp.md
+modify:PROJECT/notes/temp.md
+modify:PROJECT/notes/temp.md
+modify:PROJECT/notes/temp.md
+remove:PROJECT/notes/temp.md

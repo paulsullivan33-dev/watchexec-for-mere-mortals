@@ -1,0 +1,12 @@
+### A) watchexec --postpone -e md
+drivers/t03-filtering.sh: line 24: /home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/runs-t03a.log: No such file or directory
+runs after .txt edit: 0
+runs after .md edit:  1
+### B) watchexec --postpone -i 'draft-*'
+drivers/t03-filtering.sh: line 24: /home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/runs-t03b.log: No such file or directory
+runs after draft edit:   0
+runs after normal edit:  1
+### C) .gitignore with scratch/ in it
+drivers/t03-filtering.sh: line 24: /home/hatch/workspace/watchexec-for-mere-mortals/watchexec-lab/runs-t03c.log: No such file or directory
+runs after scratch edit (gitignore honoured): 0
+runs after scratch edit (--no-vcs-ignore):    1

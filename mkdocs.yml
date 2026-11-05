@@ -1,0 +1,30 @@
+site_name: Watchexec for Mere Mortals
+site_description: Run a command when your files change. Watching a folder, settling a burst of saves into one run, filtering out the noise, restarting a server you run yourself, and knowing exactly what the watcher will and will not do.
+site_url: https://paulsullivan33-dev.github.io/watchexec-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Watchexec Is: what-watchexec-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing Watchexec: installing-watchexec.md
+  - Your First Watch: your-first-watch.md
+  - What Counts as a Change: what-counts-as-a-change.md
+  - Filtering the Noise: filtering-the-noise.md
+  - The Loop Everyone Builds Once: the-loop.md
+  - Debounce and Timing: debounce-and-timing.md
+  - Long-Lived Commands: long-lived-commands.md
+  - What the Command Is Told: what-the-command-is-told.md
+  - Clear Screens and Shells: clear-and-the-shell.md
+  - Real Jobs: real-jobs.md
+  - Working Modes: working-modes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

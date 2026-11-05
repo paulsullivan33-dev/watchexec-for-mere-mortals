@@ -1,0 +1,135 @@
+watchexec — the distilled commands
+====================================================================
+Placeholders: <cmd> is a command of yours;
+<dir> is a folder of yours to watch.
+Every command below is one the lab ran
+(transcripts in watchexec-lab/transcripts/)
+or names as documented-only in the guide.
+
+FIRST WATCH (chapters 3-4)
+--------------------------------------------------------------------
+  watchexec --version              # the check every install
+                                   # must pass
+  watchexec -w . -- <cmd>          # run <cmd> now, and on
+                                   # every change under .
+  watchexec --timings -w . -- <cmd>
+                                   # the same, reporting how
+                                   # long each run took
+  watchexec -q -w . -- <cmd>       # quiet: no [Running:]
+                                   # frame, only <cmd>'s voice
+  (Ctrl-C)                         # stop the watcher; it
+                                   # stops the command too
+
+SEEING EVENTS (chapter 5)
+--------------------------------------------------------------------
+  watchexec --postpone --print-events -w . -- <cmd>
+                                   # print the events that
+                                   # trigger each run: kinds,
+                                   # paths, the ground truth
+  watchexec --no-meta -w . -- <cmd>
+                                   # disregard metadata-only
+                                   # changes (chmod, touch)
+  watchexec --fs-events create,modify -w . -- <cmd>
+                                   # admit only these event
+                                   # kinds (documented-only
+                                   # spelling, from --help)
+
+FILTERING (chapter 6)
+--------------------------------------------------------------------
+  watchexec -e md -w . -- <cmd>    # only .md changes count
+  watchexec -e md,css -w . -- <cmd>
+                                   # several extensions
+  watchexec -i 'draft-*' -w . -- <cmd>
+                                   # ignore drafts by name
+                                   # (quote the pattern!)
+  watchexec -i 'build' -w . -- <cmd>
+                                   # ignore the output folder
+  watchexec --no-vcs-ignore -w . -- <cmd>
+                                   # stop honouring .gitignore
+  watchexec --ignore-nothing -w . -- <cmd>
+                                   # no discovered or built-in
+                                   # ignores at all; your own
+                                   # -i patterns still apply
+
+THE LOOP, DISARMED (chapter 7)
+--------------------------------------------------------------------
+  watchexec -w . -- ./build.sh     # THE LOOP, if build.sh
+                                   # writes into the tree:
+                                   # 99 builds in 6 seconds
+  watchexec -w . -i 'build' -- ./build.sh
+                                   # the same watch, safe:
+                                   # exactly 1 build
+
+TIMING (chapter 8)
+--------------------------------------------------------------------
+  watchexec --debounce 900ms -w . -- <cmd>
+                                   # settle slow saves into
+                                   # one run; spans with units
+                                   # ("900ms", "2s") are the
+                                   # modern spelling
+  watchexec -d 50 -w . -- <cmd>    # the default, made visible
+
+SERVERS (chapter 9)
+--------------------------------------------------------------------
+  watchexec -r -w . -- python3 serve.py
+                                   # restart on change: the
+                                   # old process gets SIGTERM,
+                                   # the new one takes over
+  watchexec -r --stop-signal SIGINT -w . -- <cmd>
+                                   # choose the stop signal
+                                   # (name, short name, number)
+  watchexec -r --stop-timeout 2s -w . -- <cmd>
+                                   # how long to wait before
+                                   # force; default is 10s
+                                   # (documented except the
+                                   # default, which was seen)
+
+WHAT THE COMMAND IS TOLD (chapter 10)
+--------------------------------------------------------------------
+  watchexec -w . -- <cmd>          # by default in 2.x the
+                                   # command is told NOTHING:
+                                   # no WATCHEXEC variables
+  watchexec --emit-events-to environment -w . -- <cmd>
+                                   # legacy variables:
+                                   # WATCHEXEC_WRITTEN_PATH,
+                                   # _CREATED_PATH, _REMOVED_
+                                   # PATH, _RENAMED_PATH,
+                                   # _META_CHANGED_PATH, all
+                                   # relative to
+                                   # WATCHEXEC_COMMON_PATH
+  watchexec --emit-events-to stdio -w . -- <cmd>
+                                   # "create:/abs/path" lines
+                                   # on the command's stdin;
+                                   # paths repeat, deduplicate
+  watchexec --emit-events-to json-stdio -w . -- <cmd>
+                                   # one JSON object per
+                                   # event on stdin
+
+SHELLS AND SCREENS (chapter 11)
+--------------------------------------------------------------------
+  watchexec -c -w . -- <cmd>       # clear the screen before
+                                   # each run
+  watchexec --shell=bash -w . -- <cmd>
+                                   # choose the interpreter
+  watchexec -n -w . -- <cmd>       # no shell at all: no pipes,
+                                   # no redirection, '>' is a
+                                   # word; arguments are exact
+
+WORKING MODES (chapter 13)
+--------------------------------------------------------------------
+  watchexec --postpone -w . -- <cmd>
+                                   # no startup run; first
+                                   # change runs the command
+  watchexec -o queue -w . -- <cmd> # a change during a run
+                                   # earns exactly one re-run
+  watchexec -o do-nothing -w . -- <cmd>
+                                   # the default: mid-run
+                                   # changes are dropped
+  watchexec --poll 500ms -w . -- <cmd>
+                                   # no event stream? sweep
+                                   # the tree instead (shares)
+  watchexec --exit-on-error -w . -- <cmd>
+                                   # end the watch when a run
+                                   # fails (documented-only)
+  # there is NO --once. A watcher is
+  # resident: Ctrl-C ends it.

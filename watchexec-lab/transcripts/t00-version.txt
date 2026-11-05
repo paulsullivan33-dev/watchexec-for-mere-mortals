@@ -1,0 +1,6 @@
+watchexec 2.8.0 (07e2b99e 2026-10-05) +pid1
+commit-hash: 07e2b99e833da655571fc4001ae47b03f44742c7
+commit-date: 2026-10-05
+build-date: 2026-10-06
+release: 2.8.0
+features: default,pid1
